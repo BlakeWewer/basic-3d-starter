@@ -39,7 +39,16 @@ namespace Basic3DStarter
         /// </summary>
         public void Draw()
         {
+            // Cache the old blend state 
+            BlendState oldBlendState = game.GraphicsDevice.BlendState;
+
+            // Enable alpha blending 
+            game.GraphicsDevice.BlendState = BlendState.AlphaBlend;
+
+            // Apply our effect
             effect.CurrentTechnique.Passes[0].Apply();
+
+            // Render the quad
             game.GraphicsDevice.DrawUserIndexedPrimitives<VertexPositionTexture>(
                 PrimitiveType.TriangleList,
                 vertices,   // The vertex collection
@@ -49,6 +58,9 @@ namespace Basic3DStarter
                 0,          // The starting index in the index array
                 2           // The number of triangles to draw
             );
+
+            // Restore the old blend state 
+            game.GraphicsDevice.BlendState = oldBlendState;
         }
 
         /// <summary>

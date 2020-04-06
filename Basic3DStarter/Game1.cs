@@ -18,6 +18,9 @@ namespace Basic3DStarter
         // The quad to draw
         Quad quad;
 
+        // The cube to draw 
+        Cube cube;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -53,6 +56,9 @@ namespace Basic3DStarter
 
             // Create the quad
             quad = new Quad(this);
+
+            // Create the cube
+            cube = new Cube(this);
         }
 
         /// <summary>
@@ -79,6 +85,9 @@ namespace Basic3DStarter
             // Update the triangle 
             triangle.Update(gameTime);
 
+            // update the cube 
+            cube.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -97,6 +106,9 @@ namespace Basic3DStarter
 
             // Draw the quad
             quad.Draw();
+
+            // draw the cube
+            cube.Draw();
 
             base.Draw(gameTime);
         }
