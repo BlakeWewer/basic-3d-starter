@@ -35,6 +35,18 @@ namespace Basic3DStarter
         Game game;
 
         /// <summary>
+        /// Constructs the Quad
+        /// </summary>
+        /// <param name="game">The Game the Quad belongs to</param>
+        public Quad(Game game)
+        {
+            this.game = game;
+            InitializeVertices();
+            InitializeIndices();
+            InitializeEffect();
+        }
+
+        /// <summary>
         /// Draws the quad
         /// </summary>
         public void Draw()
